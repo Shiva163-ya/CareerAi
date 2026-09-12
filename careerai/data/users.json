@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Test Student",
+    "education": "B.Tech",
+    "skills": "Python",
+    "experience_level": "Student",
+    "career_goal": "Get a job",
+    "target_role": "Python Developer",
+    "study_hours": "2",
+    "created_at": "2026-09-09T12:42:03.942110+00:00"
+  },
+  {
+    "name": "Test Student",
+    "education": "B.Tech Computer Science",
+    "skills": "Python, HTML",
+    "experience_level": "Student",
+    "career_goal": "Get a software job",
+    "target_role": "Python Developer",
+    "study_hours": "2",
+    "created_at": "2026-09-09T12:43:22.597114+00:00"
+  },
+  {
+    "name": "siva yandava",
+    "education": "B.Tech",
+    "skills": "python, html, css , js ",
+    "experience_level": "Student",
+    "career_goal": "software employee",
+    "target_role": "python fullstack developer",
+    "study_hours": "4",
+    "created_at": "2026-09-09T12:46:03.368140+00:00"
+  },
+  {
+    "name": "ashitosh",
+    "education": "BTech",
+    "skills": "python",
+    "experience_level": "Student",
+    "career_goal": "software employee",
+    "target_role": "python developer",
+    "study_hours": "5",
+    "created_at": "2026-09-10T02:44:08.440421+00:00"
+  },
+  {
+    "name": "siva",
+    "education": "BTech",
+    "skills": "python",
+    "experience_level": "Student",
+    "career_goal": "employee",
+    "target_role": "python developer",
+    "study_hours": "1",
+    "created_at": "2026-09-12T06:50:01.884219+00:00"
+  }
+]

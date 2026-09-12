@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CareerAI helps students plan careers and improve resumes with Gemini AI.">
+  <title>CareerAI | AI Career Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="CareerAI home"><span class="brand-mark" aria-hidden="true"><i></i><b></b></span><span class="brand-name">Career<span>AI</span></span></a>
+      <p class="tagline">Learn anything. Build your career.</p>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#top">Home</a>
+        <a href="#mentor">🤖 <span>AI Mentor</span></a>
+        <a href="#skills">🌎 <span>Skills</span></a>
+        <a href="#coding">💻 <span>Coding Lab</span></a>
+        <a class="nav-quiet" href="#coach">Career Coach</a>
+        <a class="nav-quiet" href="#resume">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <div class="hero-kicker"><span class="live-mark"></span> PERSONAL AI LEARNING PLATFORM <span>POWERED BY GEMINI</span></div>
+        <h1>Learn smarter.<br><span>Grow further.</span></h1>
+        <p class="hero-text">Your personal mentor for learning skills, solving code, building projects, and moving with confidence toward your career.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#mentor">Start learning with AI <span>→</span></a>
+          <a class="button button-secondary" href="#skills">Explore skills</a>
+        </div>
+        <ul class="hero-tags" aria-label="CareerAI core features">
+          <li>Guided learning</li>
+          <li>Code analysis</li>
+          <li>Career direction</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section class="feature-band" id="features">
+      <div class="section-wrap feature-strip">
+        <div class="strip-item"><strong>Career Analysis</strong><span>Understand where you stand now</span></div>
+        <div class="strip-item"><strong>Skill Gap</strong><span>Find exactly what is missing</span></div>
+        <div class="strip-item"><strong>Roadmap</strong><span>Follow a guided growth plan</span></div>
+        <div class="strip-item"><strong>Interview Prep</strong><span>Practice before the real opportunity</span></div>
+      </div>
+    </section>
+
+    <section class="mentor-section section-wrap" id="mentor" aria-label="Career AI Mentor">
+      <div class="section-heading mentor-heading">
+        <p class="eyebrow">CAREER AI MENTOR</p>
+        <h2>Learn the answer. Don't just receive it.</h2>
+        <p>Your personal AI study and career companion for problems, concepts, code, and interviews.</p>
+      </div>
+
+      <div class="mentor-layout">
+        <aside class="mentor-home-panel">
+          <div class="mentor-identity">
+            <span class="mentor-orb">✦</span>
+            <div><strong>Career AI Mentor</strong><small>Guided learning mode</small></div>
+            <span class="online-dot" aria-label="Online"></span>
+          </div>
+
+          <p class="mentor-greeting">Good morning, Ananya 👋</p>
+          <h3>What would you like help with today?</h3>
+
+          <div class="mentor-mode-grid">
+            <button class="mentor-mode active" type="button" data-mode="guided" data-prompt="I want to solve a DSA problem with guidance."><span>🧩</span><strong>Solve a Problem</strong><small>Get guided help</small></button>
+            <button class="mentor-mode" type="button" data-mode="concept" data-prompt="Teach me a concept in a simple way."><span>📚</span><strong>Learn a Concept</strong><small>Understand anything</small></button>
+            <button class="mentor-mode" type="button" data-mode="code" data-prompt="Help me understand this code error."><span>🐛</span><strong>Fix My Code</strong><small>Understand the error</small></button>
+            <button class="mentor-mode" type="button" data-mode="hint" data-prompt="Give me a hint without showing the answer."><span>💡</span><strong>Give Me a Hint</strong><small>Keep thinking</small></button>
+            <button class="mentor-mode" type="button" data-mode="practice" data-prompt="Give me a practice question."><span>📝</span><strong>Practice</strong><small>Test your knowledge</small></button>
+            <button class="mentor-mode" type="button" data-mode="interview" data-prompt="Start a technical interview practice."><span>🎤</span><strong>Mock Interview</strong><small>Practice responses</small></button>
+          </div>
+
+          <div class="mentor-stats">
+            <div><span>🔥</span><strong>12</strong><small>Day streak</small></div>
+            <div><span>🧠</span><strong>34</strong><small>Mastered</small></div>
+            <div><span>💡</span><strong>27</strong><small>Hints used</small></div>
+            <div><span>🎯</span><strong>72%</strong><small>Career ready</small></div>
+          </div>
+        </aside>
+
+        <div class="mentor-chat-panel">
+          <div class="mentor-chat-header">
+            <div><span class="chat-avatar">✦</span><div><strong>Learn with Career AI</strong><small>I'll guide you step by step</small></div></div>
+            <span class="level-pill">Beginner</span>
+          </div>
+
+          <div class="mentor-conversation" id="mentor-conversation" aria-live="polite">
+            <div class="mentor-message ai"><span class="message-label">MENTOR</span><p>Let's solve this together. What are you working on, and what have you tried so far?</p><small>Start with your own thinking. I will give you the next useful hint.</small></div>
+          </div>
+
+          <div class="stuck-panel" id="stuck-panel" hidden>
+            <strong>Where are you stuck?</strong>
+            <div class="stuck-options"><button type="button" data-stuck="I don't understand the question.">The question</button><button type="button" data-stuck="I understand it but don't know the approach.">The approach</button><button type="button" data-stuck="I know the approach but can't code it.">Writing code</button><button type="button" data-stuck="My code gives an error.">An error</button></div>
+          </div>
+
+          <div class="mentor-tools">
+            <button type="button" class="tool-button" id="stuck-button">🆘 I'm Stuck</button>
+            <button type="button" class="tool-button" data-hint="1">💡 Hint 1</button>
+            <button type="button" class="tool-button" data-hint="2">Hint 2</button>
+            <button type="button" class="tool-button" data-hint="3">Hint 3</button>
+            <label class="mentor-topic">Topic<select id="mentor-topic"><option>DSA</option><option>Python</option><option>SQL</option><option>Web Development</option><option>Interview</option></select></label>
+          </div>
+
+          <form class="mentor-composer" id="mentor-form">
+            <textarea id="mentor-input" rows="2" placeholder="Ask Career AI, or share what you tried..." required></textarea>
+            <button class="button button-primary" type="submit">Send <span>→</span></button>
+          </form>
+          <p class="mentor-note">Learning-first mode: the mentor asks, hints, checks, and explains before revealing a full solution.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="skills-library section-wrap" id="skills" aria-label="Explore unlimited skills">
+      <div class="section-heading skills-heading">
+        <p class="eyebrow">EXPLORE ANY SKILL</p>
+        <h2>Learn what your career needs next.</h2>
+        <p>Search for a technology, concept, or career topic. If it is new, Career AI can build a path around your goal.</p>
+      </div>
+
+      <div class="skills-search-panel">
+        <form class="skill-search-form" id="skill-search-form">
+          <label for="skill-search">Search skills, technologies, or concepts</label>
+          <div class="skill-search-row"><input id="skill-search" type="search" placeholder="Try Python decorators, AWS, or system design" required><button class="button button-primary" type="submit">Search <span>⌕</span></button></div>
+        </form>
+        <div class="skill-suggestions"><span>Try:</span><button type="button" data-skill-query="Python">Python</button><button type="button" data-skill-query="DSA">DSA</button><button type="button" data-skill-query="Machine Learning">Machine Learning</button><button type="button" data-skill-query="React">React</button></div>
+      </div>
+
+      <div class="skill-search-result" id="skill-search-result" hidden></div>
+
+      <div class="course-generator" id="course-generator" hidden>
+        <div><p class="mini-label">✨ Generate My Course</p><h3>Turn a new skill into a personalized path.</h3><p>Career AI will build modules, interactive lessons, practice, and a project around your goal.</p></div>
+        <form id="course-form">
+          <input id="course-skill" name="skill" type="hidden">
+          <div class="course-form-grid"><label>Current level<select name="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label><label>Goal<input name="goal" value="Build practical skill" required></label><label>Available time<input name="available_time" value="1 hour/day" required></label><label>Preferred style<select name="style"><option>Practical</option><option>Interview-focused</option><option>Project-based</option><option>Exam-focused</option></select></label></div>
+          <button class="button button-primary" type="submit">Generate course <span>→</span></button>
+        </form>
+      </div>
+
+      <div class="generated-course" id="generated-course" hidden></div>
+    </section>
+
+    <section class="coding-lab section-wrap" id="coding" aria-label="Coding Agent workspace">
+      <div class="section-heading coding-heading">
+        <p class="eyebrow">CODING AGENT</p>
+        <h2>Write, understand, and improve with a safe learning workspace.</h2>
+        <p>The agent reviews code, explains errors, suggests tests, and shows what to learn next. Execution stays disabled until an isolated sandbox is configured.</p>
+      </div>
+
+      <div class="coding-workspace">
+        <div class="code-editor-panel">
+          <div class="coding-toolbar"><label>Language<select id="code-language"><option>Python</option><option>JavaScript</option><option>TypeScript</option><option>Java</option><option>C</option><option>C++</option><option>SQL</option><option>HTML</option><option>CSS</option></select></label><span class="safe-badge">● Analysis safe</span></div>
+          <label class="code-label" for="code-input">Your code</label>
+          <textarea id="code-input" spellcheck="false" placeholder="def two_sum(nums, target):&#10;    # paste your code here&#10;    pass">def is_even(number):
+    return number % 2</textarea>
+          <div class="code-error-row"><label for="code-error">Error message <span>optional</span></label><input id="code-error" placeholder="e.g. NameError: name 'Solution' is not defined"></div>
+          <div class="code-actions"><button class="button button-primary" type="button" id="run-code-button">▶ Run</button><button class="button button-secondary" type="button" id="clear-output-button">Clear</button><button class="button button-secondary" type="button" data-code-action="explain">Explain</button><button class="button button-secondary" type="button" data-code-action="debug">Debug</button><button class="button button-secondary" type="button" data-code-action="review">Review</button><button class="button button-secondary" type="button" data-code-action="tests">Generate tests</button></div>
+          <div class="code-formation"><label for="code-problem">Code formation</label><textarea id="code-problem" rows="3" placeholder="Describe what you want to build, e.g. Write a Python function that finds two numbers adding to a target."></textarea><button class="button button-secondary" type="button" id="generate-code-button">Form code <span>→</span></button></div>
+        </div>
+        <aside class="code-agent-panel">
+          <div class="code-agent-header"><div><span class="chat-avatar">✦</span><div><strong>Career AI Coding Agent</strong><small>Learning-first code feedback</small></div></div><span class="online-dot" aria-label="Ready"></span></div>
+          <div class="code-output" id="code-output"><div class="code-empty-state"><span>⌘</span><strong>Choose an action</strong><p>Run your Python code for output, or ask the agent to explain, debug, review, or design tests.</p></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="showcase section-wrap">
+      <div class="section-heading center">
+        <p class="eyebrow">WHY CAREER AI</p>
+        <h2>Turn uncertainty into a clear next move.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="card-icon">01</div>
+          <h3>AI Career Analysis</h3>
+          <p>See your current readiness, your strengths, and the biggest opportunities for growth.</p>
+        </article>
+        <article class="feature-card">
+          <div class="card-icon">02</div>
+          <h3>Skill Gap Detection</h3>
+          <p>Compare your profile against the target role and highlight what to learn next.</p>
+        </article>
+        <article class="feature-card">
+          <div class="card-icon">03</div>
+          <h3>Personalized Roadmap</h3>
+          <p>Get a practical plan with milestones, project suggestions, and weekly actions.</p>
+        </article>
+        <article class="feature-card">
+          <div class="card-icon">04</div>
+          <h3>Resume Confidence</h3>
+          <p>Improve ATS keywords, project storytelling, and the way your experience is presented.</p>
+        </article>
+        <article class="feature-card">
+          <div class="card-icon">05</div>
+          <h3>Mock Interviews</h3>
+          <p>Practice technical and HR conversations with feedback that actually helps you improve.</p>
+        </article>
+        <article class="feature-card">
+          <div class="card-icon">06</div>
+          <h3>Career Growth</h3>
+          <p>Track progress over time and stay motivated with visible momentum and measurable gains.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="tool-section section-wrap" id="coach">
+      <div class="section-heading"><p class="eyebrow">01 / CAREER COACH</p><h2>Your career, mapped out.</h2><p>Tell us where you are and where you want to go. Your AI mentor will turn it into a focused plan.</p></div>
+      <form class="form-card" id="career-form">
+        <div class="form-grid">
+          <label>Full Name<input name="name" type="text" placeholder="e.g. Ananya Sharma" required></label>
+          <label>Education<input name="education" type="text" placeholder="e.g. B.Tech Computer Science" required></label>
+          <label class="span-two">Current Skills<textarea name="skills" rows="3" placeholder="e.g. Python, HTML, communication" required></textarea></label>
+          <label>Experience Level<select name="experience_level" required><option value="">Select level</option><option>Student</option><option>Fresher</option><option>Entry-level</option><option>Intermediate</option></select></label>
+          <label>Career Goal<input name="career_goal" type="text" placeholder="e.g. Get my first tech job" required></label>
+          <label>Target Role<input name="target_role" type="text" placeholder="e.g. Python Developer" required></label>
+          <label>Study Hours Per Day<input name="study_hours" type="number" min="0.5" max="24" step="0.5" placeholder="e.g. 2" required></label>
+        </div>
+        <button class="button button-primary" type="submit">Generate Career Guidance <span>↗</span></button>
+      </form>
+      <div class="result-wrap" id="career-result" hidden></div>
+    </section>
+
+    <section class="tool-section alternate" id="resume">
+      <div class="section-wrap">
+        <div class="section-heading"><p class="eyebrow">02 / RESUME ANALYZER</p><h2>Make your resume work harder.</h2><p>Upload your PDF and see what a recruiter, ATS, and your target role might notice first.</p></div>
+        <form class="form-card" id="resume-form" enctype="multipart/form-data">
+          <div class="upload-box"><input id="resume-file" name="resume" type="file" accept="application/pdf,.pdf" required><label for="resume-file"><span class="upload-icon">↑</span><strong id="file-label">Drop your resume here or browse</strong><small>PDF only · max 5 MB</small></label></div>
+          <div class="form-grid two-columns">
+            <label>Target Role<input name="target_role" type="text" placeholder="e.g. Data Analyst" required></label>
+            <label>Experience Level<select name="experience_level" required><option value="">Select level</option><option>Student</option><option>Fresher</option><option>Entry-level</option><option>Intermediate</option></select></label>
+          </div>
+          <button class="button button-primary" type="submit">Analyze Resume <span>↗</span></button>
+        </form>
+        <div class="result-wrap" id="resume-result" hidden></div>
+      </div>
+    </section>
+
+    <section class="prompt-section section-wrap">
+      <div><p class="eyebrow">03 / AI LITERACY</p><h2>Better prompts.<br><em>Better answers.</em></h2></div>
+      <div class="prompt-content"><p class="prompt-label">🧠 Prompt Engineering</p><div class="prompt-comparison"><div><small>BAD PROMPT</small><p>“Analyze my resume”</p></div><span>→</span><div class="good-prompt"><small>BETTER PROMPT</small><p>A structured prompt includes a <b>role</b>, <b>context</b>, <b>input</b>, <b>instructions</b>, and an <b>output format</b>.</p></div></div><p class="prompt-footer">More context gives AI a clearer job to do.</p></div>
+    </section>
+  </main>
+  <footer><span>✦ CareerAI</span><span>Built for curious students.</span></footer>
+</body>
+</html>

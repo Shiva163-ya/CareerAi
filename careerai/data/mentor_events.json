@@ -1,0 +1,110 @@
+[
+  {
+    "message": "I do not understand Two Sum. Please ask me one guiding question first.",
+    "mode": "guided",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T07:32:21.649295+00:00"
+  },
+  {
+    "message": "I want to solve a DSA problem with guidance.",
+    "mode": "guided",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T07:33:05.707570+00:00"
+  },
+  {
+    "message": "hi",
+    "mode": "guided",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T07:33:24.369636+00:00"
+  },
+  {
+    "message": "what is python",
+    "mode": "guided",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T07:33:47.813174+00:00"
+  },
+  {
+    "message": "I want to solve a DSA problem with guidance.",
+    "mode": "guided",
+    "topic": "Interview",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T07:34:37.077534+00:00"
+  },
+  {
+    "message": "did explain array concept",
+    "mode": "concept",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T07:42:57.224721+00:00"
+  },
+  {
+    "message": "I want to solve a DSA problem with guidance.",
+    "mode": "guided",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T07:44:22.592721+00:00"
+  },
+  {
+    "message": "Please give me hint 1 without giving away the full solution.",
+    "mode": "guided",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 1,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T07:44:36.212119+00:00"
+  },
+  {
+    "message": "I want to solve a DSA problem with guidance.",
+    "mode": "guided",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T08:01:25.159747+00:00"
+  },
+  {
+    "message": "Explain variables",
+    "mode": "guided",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T08:23:12.806345+00:00"
+  },
+  {
+    "message": "Explain Python variables in one simple question",
+    "mode": "guided",
+    "topic": "Python",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T08:25:45.280685+00:00"
+  },
+  {
+    "message": "I don't understand the question.",
+    "mode": "guided",
+    "topic": "DSA",
+    "level": "Beginner",
+    "hint_level": 0,
+    "next_action": "ask_attempt",
+    "created_at": "2026-09-12T08:28:06.279955+00:00"
+  }
+]

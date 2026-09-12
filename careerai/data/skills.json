@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Python",
+    "description": "Master core Python fundamentals, data manipulation, and file automation through daily hands-on coding exercises.",
+    "course_key": "python|beginner|build practical skill",
+    "created_at": "2026-09-12T07:55:29.320617+00:00"
+  },
+  {
+    "name": "React",
+    "description": "A hands-on, interview-focused React course designed to take beginners from core JSX and component architecture to state management and practical coding challenges.",
+    "course_key": "react|beginner|build practical skill",
+    "created_at": "2026-09-12T07:58:04.146844+00:00"
+  }
+]

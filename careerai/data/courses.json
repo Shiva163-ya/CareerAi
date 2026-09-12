@@ -1,0 +1,244 @@
+[
+  {
+    "title": "Practical Python Essentials: From Syntax to Scripting",
+    "summary": "Master core Python fundamentals, data manipulation, and file automation through daily hands-on coding exercises.",
+    "skill": "Python",
+    "level": "Beginner",
+    "goal": "Build practical skill",
+    "learning_outcomes": [
+      "Write readable, efficient Python scripts using variables, conditionals, and loops.",
+      "Manipulate structured data using core Python collections like lists and dictionaries.",
+      "Build modular code by defining custom functions and handling runtime errors.",
+      "Automate practical tasks by reading, modifying, and writing text, CSV, and JSON files."
+    ],
+    "modules": [
+      {
+        "title": "Module 1: Python Fundamentals and Interactive Input",
+        "objective": "Set up basic scripts and manipulate common data types using inputs and output functions.",
+        "lessons": [
+          {
+            "title": "Variables and Data Types",
+            "concept": "Storing information using strings, integers, floats, and booleans.",
+            "practice": "Declare variables representing a user profile (name, age, height, active status) and output a formatted welcome string."
+          },
+          {
+            "title": "User Input and Type Conversion",
+            "concept": "Receiving command-line input from users and casting types for calculations.",
+            "practice": "Build a tip calculator script that prompts for total bill amount and split count, returning each person's share."
+          }
+        ]
+      },
+      {
+        "title": "Module 2: Decision Making and Iteration",
+        "objective": "Control script execution flow using conditional statements and looping mechanisms.",
+        "lessons": [
+          {
+            "title": "Conditional Execution",
+            "concept": "Branching execution paths using if, elif, and else logic operators.",
+            "practice": "Write a password validator that checks string length and special character presence, returning feedback."
+          },
+          {
+            "title": "Loops and Iteration",
+            "concept": "Automating repeated tasks using while loops and for loops over ranges.",
+            "practice": "Create a loop that prints the multiplication table for a number specified by the user from 1 to 10."
+          }
+        ]
+      },
+      {
+        "title": "Module 3: Structured Data Collections",
+        "objective": "Store, clean, and retrieve organized data using Python's built-in data structures.",
+        "lessons": [
+          {
+            "title": "Working with Lists",
+            "concept": "Creating, indexing, slicing, and mutating ordered sequences of items.",
+            "practice": "Build an interactive task list program allowing users to add, view, and remove tasks."
+          },
+          {
+            "title": "Key-Value Storage with Dictionaries",
+            "concept": "Organizing data into key-value pairs for direct lookups and structural clarity.",
+            "practice": "Construct a mini contact management script where users can store and search phone numbers by contact name."
+          }
+        ]
+      },
+      {
+        "title": "Module 4: Modular Code and Robustness",
+        "objective": "Structure reusable code blocks using functions and protect programs against crashes with error handling.",
+        "lessons": [
+          {
+            "title": "Defining Functions",
+            "concept": "Encapsulating reusable operations using def statements, arguments, and return values.",
+            "practice": "Write a unit converter function that converts temperatures between Celsius and Fahrenheit based on a unit flag."
+          },
+          {
+            "title": "Error and Exception Handling",
+            "concept": "Intercepting and handling runtime bugs gracefully using try and except blocks.",
+            "practice": "Wrap a user division program in a try/except block to handle ZeroDivisionError and ValueError gracefully."
+          }
+        ]
+      },
+      {
+        "title": "Module 5: File Operations and Data Automation",
+        "objective": "Interact with external data files to automate real-world reading and writing processes.",
+        "lessons": [
+          {
+            "title": "Reading and Writing Text Files",
+            "concept": "Opening, editing, and saving external file data safely using context managers.",
+            "practice": "Write a script that reads an existing log file, counts total occurrences of the word 'ERROR', and saves the count to a summary file."
+          },
+          {
+            "title": "Working with CSV and JSON Data",
+            "concept": "Parsing and formatting structured data using standard built-in modules.",
+            "practice": "Create an automated script that loads an expense report from a CSV file, filters out expenses below $20, and exports the clean data to JSON."
+          }
+        ]
+      }
+    ],
+    "capstone_project": "Develop a Personal Finance Command-Line Application that reads stored financial records from a CSV file, accepts new user transactions, computes categorized monthly spending summaries, and exports a final financial summary report to a JSON file.",
+    "career_paths": [
+      "Python Developer",
+      "Data Analyst",
+      "Automation Specialist",
+      "Systems Administrator"
+    ],
+    "prerequisites": [
+      "Basic computer literacy and file system familiarity"
+    ],
+    "canonical_key": "python|beginner|build practical skill",
+    "course_version": 1,
+    "created_at": "2026-09-12T07:55:29.320617+00:00"
+  },
+  {
+    "title": "React Core & Interview-Ready Practical Skills",
+    "summary": "A hands-on, interview-focused React course designed to take beginners from core JSX and component architecture to state management and practical coding challenges.",
+    "skill": "React",
+    "level": "Beginner",
+    "goal": "Build practical skill",
+    "learning_outcomes": [
+      "Build modular web applications using functional components and JSX",
+      "Manage local and global application state using React Hooks and Context API",
+      "Fetch and handle asynchronous data with explicit loading and error states",
+      "Explain key React architecture concepts like the Virtual DOM and reconciliation in technical interviews",
+      "Solve common React coding interview challenges under timed practical scenarios"
+    ],
+    "modules": [
+      {
+        "title": "Module 1: React Foundations & Component Architecture",
+        "objective": "Build static and dynamic user interfaces using functional components, JSX, and props.",
+        "lessons": [
+          {
+            "title": "Components & JSX Syntax",
+            "concept": "JSX extends JavaScript to describe UI layout, compiling down to standard React element trees.",
+            "practice": "Convert a plain HTML user card into a reusable React functional component using JSX."
+          },
+          {
+            "title": "Props and Data Flow",
+            "concept": "Data flows top-down in React via immutable read-only props.",
+            "practice": "Pass user profile objects down to child components and render dynamic values with default prop fallbacks."
+          },
+          {
+            "title": "Rendering Lists and Keys",
+            "concept": "React uses unique 'key' props to optimize rendering list items during DOM updates.",
+            "practice": "Render an array of interview topics using `.map()` and apply unique keys, refactoring code to remove key-related console warnings."
+          }
+        ]
+      },
+      {
+        "title": "Module 2: State Management & User Events",
+        "objective": "Implement interactive UI components by handling user events and state changes with useState.",
+        "lessons": [
+          {
+            "title": "Managing State with useState",
+            "concept": "State preserves values across component re-renders, triggering dynamic updates when state setters execute.",
+            "practice": "Build an interactive toggle card that exposes hidden interview tips on click."
+          },
+          {
+            "title": "Lifting State Up",
+            "concept": "Share state between sibling components by moving state to their closest common ancestor.",
+            "practice": "Create a search filter component that passes query updates up to filter a parent list display."
+          },
+          {
+            "title": "Controlled Components & Forms",
+            "concept": "React state serves as the single source of truth for form inputs.",
+            "practice": "Construct a multi-field feedback form with controlled inputs and client-side validation logic."
+          }
+        ]
+      },
+      {
+        "title": "Module 3: Side Effects & Asynchronous Data",
+        "objective": "Fetch external API data cleanly while managing side effect lifecycles using useEffect.",
+        "lessons": [
+          {
+            "title": "Understanding useEffect & Dependency Arrays",
+            "concept": "Side effects run after rendering; dependency arrays control when effects trigger or re-run.",
+            "practice": "Log screen resize events and cleanly remove event listeners using the useEffect cleanup function."
+          },
+          {
+            "title": "Fetching API Data in React",
+            "concept": "Asynchronous operations inside effects populate state once data resolves.",
+            "practice": "Fetch a list of tech job postings from a mock API and render them upon component mount."
+          },
+          {
+            "title": "Handling Loading & Error States",
+            "concept": "Production components require distinct state branches for pending, success, and error outcomes.",
+            "practice": "Implement explicit loading spinners and fallback UI elements for failed network calls."
+          }
+        ]
+      },
+      {
+        "title": "Module 4: Advanced Patterns & Custom Hooks",
+        "objective": "Extract re-usable UI logic into custom hooks and manage global application state with Context.",
+        "lessons": [
+          {
+            "title": "Global State with Context API",
+            "concept": "Context avoids prop-drilling by sharing data across deep component hierarchies.",
+            "practice": "Build a Light/Dark theme provider and consume it inside nested navigation components."
+          },
+          {
+            "title": "Building Custom Hooks",
+            "concept": "Custom hooks allow extraction and reuse of stateful logic across multiple components.",
+            "practice": "Extract API fetching and status state into a reusable `useFetch` custom hook."
+          },
+          {
+            "title": "Performance Basics: useMemo & useCallback",
+            "concept": "Memoization prevents unnecessary expensive recalculations and child component re-renders.",
+            "practice": "Optimize a filtered candidate list to prevent re-computation on unrelated state changes."
+          }
+        ]
+      },
+      {
+        "title": "Module 5: Interview Preparation & Practical Coding Challenges",
+        "objective": "Articulate React principles confidently and solve real-world coding interview tasks.",
+        "lessons": [
+          {
+            "title": "Virtual DOM & Reconciliation Mechanics",
+            "concept": "React compares UI trees via diffing algorithms to execute minimal actual DOM updates.",
+            "practice": "Draft a concise 2-minute response explaining the Virtual DOM and answer key theoretical questions."
+          },
+          {
+            "title": "Coding Challenge: Debounced Live Search",
+            "concept": "Debouncing prevents rapid execution of search API requests during rapid text input.",
+            "practice": "Implement a real-time user search bar with a 300ms debounce buffer in under 30 minutes."
+          },
+          {
+            "title": "Debugging & Code Refactoring",
+            "concept": "Identifying stale closures, infinite re-render loops, and memory leaks is crucial in senior-led code reviews.",
+            "practice": "Identify and fix three deliberate bugs in a broken dashboard component code snippet."
+          }
+        ]
+      }
+    ],
+    "capstone_project": "Build an interview-ready Job Application Tracker dashboard that features API integration, search/filtering, persistent state via custom hooks, dynamic modal forms, and dark mode theme switching.",
+    "career_paths": [
+      "Frontend Developer",
+      "React Developer",
+      "Full Stack JavaScript Engineer"
+    ],
+    "prerequisites": [
+      "Basic HTML5 and CSS3 fundamentals",
+      "Modern JavaScript (ES6+) concepts such as destructuring, arrow functions, promises, and array methods"
+    ],
+    "canonical_key": "react|beginner|build practical skill",
+    "course_version": 1,
+    "created_at": "2026-09-12T07:58:04.146844+00:00"
+  }
+]
