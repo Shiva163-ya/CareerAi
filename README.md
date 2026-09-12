@@ -1,2 +1,1 @@
-# CareerAi
-studyplan
+
