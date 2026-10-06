@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerAi - AI-Powered Career Guidance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-section {
+            background: #f0f4ff;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .status-section h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-stack {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .tech-stack h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .tech-item {
+            background: #f0f4ff;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            color: #667eea;
+        }
+
+        .deployment-guide {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .deployment-guide h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .deployment-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .deployment-steps li {
+            counter-increment: step-counter;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .deployment-steps li:before {
+            content: counter(step-counter);
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .github-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚀 CareerAi</h1>
+        <p>Your AI-Powered Career Guidance & Learning Platform</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#status">Status</a></li>
+            <li><a href="#tech">Tech Stack</a></li>
+            <li><a href="#deployment">Deployment</a></li>
+            <li><a href="https://github.com/Shiva163-ya/CareerAi" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h2>Transform Your Career Today</h2>
+            <p>Get personalized career guidance, resume analysis, coding assistance, and mentoring powered by AI</p>
+            <a href="#deployment" class="cta-button">Get Started →</a>
+        </div>
+
+        <section id="features">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #667eea;">Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Career Coach</h3>
+                    <p>Get personalized career recommendations based on your profile, skills, and goals</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Resume Analyzer</h3>
+                    <p>Upload your resume and get AI-powered feedback and improvement suggestions</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Coding Agent</h3>
+                    <p>Get help with code analysis, debugging, optimization and learning</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>AI Mentor</h3>
+                    <p>Interactive Socratic tutoring for DSA, algorithms and any topic</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Course Generator</h3>
+                    <p>Create personalized learning paths and courses for any skill</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">▶️</div>
+                    <h3>Code Execution</h3>
+                    <p>Run Python code safely in an isolated sandbox environment</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="status" class="status-section">
+            <h3>📊 Project Status</h3>
+            <p style="margin-bottom: 1rem;">CareerAi is currently being prepared for production deployment</p>
+            <div>
+                <span class="status-badge">✓ Backend Ready</span>
+                <span class="status-badge">✓ AI Integration Done</span>
+                <span class="status-badge">⏳ Deployment In Progress</span>
+                <span class="status-badge">⏳ Public Launch Coming Soon</span>
+            </div>
+        </section>
+
+        <section id="tech" class="tech-stack">
+            <h3>🛠️ Technology Stack</h3>
+            <div class="tech-list">
+                <div class="tech-item">Flask</div>
+                <div class="tech-item">Google Gemini AI</div>
+                <div class="tech-item">PyPDF</div>
+                <div class="tech-item">Python 3.11+</div>
+                <div class="tech-item">Gunicorn</div>
+                <div class="tech-item">Render Hosting</div>
+            </div>
+        </section>
+
+        <section id="deployment" class="deployment-guide">
+            <h3>🚀 Deployment Guide - Get Your Live Website Running</h3>
+            <p style="margin-bottom: 1.5rem;"><strong>The app is ready! Follow these steps to deploy it live:</strong></p>
+
+            <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;">Step 1: Get Your Gemini API Key</h4>
+            <ol class="deployment-steps">
+                <li>Visit <strong>https://aistudio.google.com/app/apikey</strong></li>
+                <li>Sign in with your Google account</li>
+                <li>Click <strong>"Create API Key"</strong></li>
+                <li>Copy the generated key (keep it safe!)</li>
+            </ol>
+
+            <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;">Step 2: Deploy on Render</h4>
+            <ol class="deployment-steps">
+                <li>Go to <strong>https://render.com</strong></li>
+                <li>Click <strong>"Sign Up"</strong> (use GitHub for easy login)</li>
+                <li>Click <strong>"New +"</strong> → <strong>"Web Service"</strong></li>
+                <li>Select <strong>"Connect a repository"</strong> and choose <strong>Shiva163-ya/CareerAi</strong></li>
+                <li>Fill in the configuration:
+                    <div class="code-block">
+Name: careerai
+Environment: Python 3
+Region: Oregon (or nearest to you)
+Build Command: pip install -r careerai/requirements.txt
+Start Command: cd careerai && gunicorn app:app
+                    </div>
+                </li>
+                <li>Click <strong>"Advanced"</strong> and add Environment Variable:
+                    <div class="code-block">
+Key: GEMINI_API_KEY
+Value: [Paste your API key from Step 1]
+                    </div>
+                </li>
+                <li>Click <strong>"Create Web Service"</strong></li>
+                <li>Wait for deployment (2-5 minutes)</li>
+                <li>Your app will be live at: <strong>https://careerai.onrender.com</strong> (or your custom name)</li>
+            </ol>
+
+            <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;">Step 3: Test Your Live App</h4>
+            <ol class="deployment-steps">
+                <li>Once Render shows "Live", click the URL in the top left</li>
+                <li>Your CareerAi app is now live!</li>
+                <li>Try the Career Coach, Resume Analyzer, Coding Agent, and Mentor features</li>
+            </ol>
+
+            <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;">📌 Important Notes</h4>
+            <div style="background: white; padding: 1rem; border-radius: 5px; margin-top: 1rem;">
+                <ul style="list-style: disc; margin-left: 1.5rem;">
+                    <li><strong>Why not GitHub Pages?</strong> GitHub Pages only hosts static HTML/CSS/JS. Your CareerAi is a Python Flask app that needs a server.</li>
+                    <li><strong>Render is free:</strong> The free tier includes 0.5 GB RAM and automatic deployments from GitHub</li>
+                    <li><strong>Auto-restart:</strong> Your app will sleep after 15 mins of inactivity on free tier (wakes up when accessed)</li>
+                    <li><strong>Keep API key secret:</strong> Never commit your API key to GitHub. Always set it in the hosting environment.</li>
+                    <li><strong>Domain:</strong> You can add a custom domain in Render settings later</li>
+                </ul>
+            </div>
+        </section>
+
+        <section style="background: white; padding: 2rem; border-radius: 10px; text-align: center;">
+            <h3 style="color: #667eea; margin-bottom: 1rem;">Ready to Deploy?</h3>
+            <p style="margin-bottom: 1.5rem;">Follow the steps above to get your CareerAi live in minutes!</p>
+            <a href="https://render.com" target="_blank" class="cta-button">Go to Render.com →</a>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666;">
+                Need help? Check the <a href="https://github.com/Shiva163-ya/CareerAi" class="github-link">GitHub repository</a> or review the full README.md
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>CareerAi - AI-Powered Career Guidance Platform</strong></p>
+        <p>Built for students, freshers, and career changers 🎓</p>
+        <p><a href="https://github.com/Shiva163-ya/CareerAi" class="github-link">View on GitHub</a></p>
+        <p style="margin-top: 1rem; opacity: 0.7;">Created with ❤️ for your career success</p>
+    </footer>
+</body>
+</html>
