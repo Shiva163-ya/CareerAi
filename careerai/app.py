@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import json
 import os
 import ast
@@ -24,7 +25,7 @@ CODE_EVENTS_FILE = DATA_DIR / "code_events.json"
 MAX_RESUME_SIZE = 5 * 1024 * 1024
 SUPPORTED_CODE_LANGUAGES = {"Python", "JavaScript", "TypeScript", "Java", "C", "C++", "SQL", "HTML", "CSS"}
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=BASE_DIR / "templates", static_folder=BASE_DIR / "static")
 app.config["MAX_CONTENT_LENGTH"] = MAX_RESUME_SIZE
 
 
@@ -52,7 +53,7 @@ def generate_ai_response(prompt):
 
     client = genai.Client(api_key=api_key)
     response = client.models.generate_content(
-        model=os.getenv("GEMINI_MODEL", "gemini-3.6-flash"),
+        model=os.getenv("GEMINI_MODEL", "gemini-2.0-flash"),
         contents=prompt,
     )
     if not response.text:
@@ -111,14 +112,14 @@ def local_python_review(code, expected_behavior=""):
                 if returns_modulo and "bool" in expected_behavior.casefold():
                     status = "needs_changes"
                     error_type = "logic"
-                    findings.append({"title": "The function returns a remainder, not a boolean", "line": node.lineno, "explanation": "Use a comparison such as `number % 2 == 0` when the expected result is True or False.", "severity": "warning"})
+                    findings.append({"title": "The function returns a remainder, not a boolean", "line": node.lineno, "explanation": "Use a comparison such as `number % 2 == 0` when the expected [...]
                     suggested_fix = "return number % 2 == 0"
                     break
     return {
         "summary": "Local Python review completed while the AI reviewer was unavailable.",
         "status": status,
         "error_type": error_type,
-        "findings": findings or [{"title": "No syntax issue detected", "line": "unknown", "explanation": "The Python code can be parsed. Add an expected behavior to review logic more deeply.", "severity": "info"}],
+        "findings": findings or [{"title": "No syntax issue detected", "line": "unknown", "explanation": "The Python code can be parsed. Add an expected behavior to review logic more deeply.", "s[...]
         "suggested_fix": suggested_fix,
         "explanation": "This is a syntax and lightweight logic check; it does not execute the submitted code.",
         "complexity": {"time": "unknown", "space": "unknown"},
@@ -130,7 +131,7 @@ def local_python_review(code, expected_behavior=""):
 def local_python_solution(problem):
     lowered = problem.casefold()
     if "two" in lowered and ("sum" in lowered or "target" in lowered):
-        code = "def two_sum(numbers, target):\n    seen = {}\n    for index, number in enumerate(numbers):\n        needed = target - number\n        if needed in seen:\n            return [seen[needed], index]\n        seen[number] = index\n    return []"
+        code = "def two_sum(numbers, target):\n    seen = {}\n    for index, number in enumerate(numbers):\n        needed = target - number\n        if needed in seen:\n            return [seen[[...]
         explanation = "Store each number's index. For the current number, check whether its complement has already been seen."
         algorithm = "One pass through the list with a dictionary of previously seen values."
         complexity = {"time": "O(n)", "space": "O(n)"}
@@ -139,7 +140,7 @@ def local_python_solution(problem):
         explanation = "This is a safe starter structure. Replace the placeholder logic after identifying the inputs, output, and edge cases."
         algorithm = "Clarify the input and output, then implement the smallest testable step."
         complexity = {"time": "unknown", "space": "unknown"}
-    return {"code": code, "explanation": explanation, "algorithm": algorithm, "complexity": complexity, "tests": ["Normal input", "Boundary input", "Empty or invalid input"], "next_step": "Read the algorithm, then adapt the starter to your exact constraints."}
+    return {"code": code, "explanation": explanation, "algorithm": algorithm, "complexity": complexity, "tests": ["Normal input", "Boundary input", "Empty or invalid input"], "next_step": "Read t[...]
 
 
 def run_python_code(code):
@@ -171,6 +172,12 @@ def run_python_code(code):
 @app.route("/")
 def home():
     return render_template("index.html")
+
+
+@app.get("/health")
+def health():
+    """Health check endpoint for deployment monitoring"""
+    return jsonify({"status": "healthy", "service": "CareerAi"}), 200
 
 
 @app.get("/skills/search")
@@ -261,7 +268,7 @@ Rules:
         app.logger.exception("AI code review response was unusable; using local fallback")
         if language == "Python":
             result = local_python_review(code, expected_behavior)
-            append_json(CODE_EVENTS_FILE, {"language": language, "action": action, "code_length": len(code), "status": result["status"], "source": "local_fallback", "created_at": datetime.now(timezone.utc).isoformat()})
+            append_json(CODE_EVENTS_FILE, {"language": language, "action": action, "code_length": len(code), "status": result["status"], "source": "local_fallback", "created_at": datetime.now(tim[...]
             return jsonify({"analysis": result, "execution": {"available": False, "reason": "AI review was unavailable. This local review never executes submitted code."}, "fallback": True})
         return error_response("The Coding Agent returned an unusable response. Please try again.", 503)
     except Exception:
@@ -338,7 +345,7 @@ Rules:
         app.logger.exception("Code analysis failed")
         if language == "Python":
             result = local_python_review(code, expected_behavior)
-            append_json(CODE_EVENTS_FILE, {"language": language, "action": action, "code_length": len(code), "status": result["status"], "source": "local_fallback", "created_at": datetime.now(timezone.utc).isoformat()})
+            append_json(CODE_EVENTS_FILE, {"language": language, "action": action, "code_length": len(code), "status": result["status"], "source": "local_fallback", "created_at": datetime.now(tim[...]
             return jsonify({"analysis": result, "execution": {"available": False, "reason": "AI review was unavailable. This local review never executes submitted code."}, "fallback": True})
         return error_response("The Coding Agent is unavailable right now. Please try again.", 502)
 
@@ -372,12 +379,12 @@ Do not claim the code was executed. Prefer readable code and explain the reasoni
     except RuntimeError:
         app.logger.exception("AI code generation response was unusable")
         if language == "Python":
-            return jsonify({"solution": local_python_solution(problem), "execution": {"available": False, "reason": "AI formation was unavailable. This local starter has not been executed."}, "fallback": True})
+            return jsonify({"solution": local_python_solution(problem), "execution": {"available": False, "reason": "AI formation was unavailable. This local starter has not been executed."}, "fa[...]
         return error_response("The Coding Agent returned an unusable response. Please try again.", 503)
     except Exception:
         app.logger.exception("Code generation failed")
         if language == "Python":
-            return jsonify({"solution": local_python_solution(problem), "execution": {"available": False, "reason": "AI formation was unavailable. This local starter has not been executed."}, "fallback": True})
+            return jsonify({"solution": local_python_solution(problem), "execution": {"available": False, "reason": "AI formation was unavailable. This local starter has not been executed."}, "fa[...]
         return error_response("The Coding Agent is unavailable right now. Please try again.", 502)
 
 
@@ -394,7 +401,7 @@ def run_code():
         return error_response("Run currently supports Python only. Add an isolated adapter before running this language.", 501)
     result = run_python_code(code)
     append_json(CODE_EVENTS_FILE, {"language": language, "action": "run", "code_length": len(code), "ok": result["ok"], "created_at": datetime.now(timezone.utc).isoformat()})
-    return jsonify({"result": result, "sandbox": {"mode": "restricted_local_subprocess", "production_ready": False, "note": "Use a container or isolated execution service before exposing this runner publicly."}})
+    return jsonify({"result": result, "sandbox": {"mode": "restricted_local_subprocess", "production_ready": False, "note": "Use a container or isolated execution service before exposing this run[...]
 
 
 @app.post("/mentor")
@@ -614,4 +621,6 @@ def file_too_large(_error):
 ensure_data_files()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # In production, gunicorn will run the app
+    # For local development:
+    app.run(debug=True, host="0.0.0.0", port=5000)
