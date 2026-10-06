@@ -5,10 +5,12 @@ services:
     region: oregon
     plan: free
     runtime: python-3.11
-    buildCommand: pip install -r careerai/requirements.txt
-    startCommand: cd careerai && gunicorn app:app
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app --bind 0.0.0.0:$PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
       - key: GEMINI_API_KEY
         generateValue: false
+      - key: GEMINI_MODEL
+        value: gemini-2.0-flash
